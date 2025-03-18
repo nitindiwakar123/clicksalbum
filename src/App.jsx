@@ -16,6 +16,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const authStatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
     const authPromise = authService.getCurrentUser()
@@ -32,6 +33,8 @@ function App() {
         throw error;
       });
 
+      if(authStatus) {
+        
       const postsPromise = postsService.getAllPosts()
       .then((posts) => {
         if(posts) {
@@ -73,7 +76,10 @@ function App() {
 
       Promise.all([authPromise, postsPromise, reelsPromise, storiesPromise])
       .finally(() => setLoading(false));
-  }, [])
+      } else {
+        navigate('/login');
+      }
+  }, []);
 
   if(!loading) {
     return (
