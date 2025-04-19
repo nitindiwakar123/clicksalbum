@@ -7,7 +7,7 @@ export default function Button({
   ...props
 }) {
   return (
-    <button type={type} className={`${className}`} {...props}>
+    <button type={type} className={`bg-custom-blue  font-sans font-medium text-md ${className}`} {...props}>
       {children}
     </button>
   )

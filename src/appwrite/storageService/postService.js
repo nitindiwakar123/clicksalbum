@@ -46,7 +46,7 @@ export class PostStorageService {
     }
 
     getPostPreview(fileId) {
-        const file = this.storage.getFilePreview(
+        const file = this.storage.getFileView(
             config.postBucketId,
             fileId
         );

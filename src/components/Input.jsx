@@ -9,12 +9,17 @@ function Input({
 }) {
     const id = useId();
   return (
-    <div>
-        {label && <label htmlFor={id}>{label}</label>}
+    <div className='flex flex-col rounded-2xl py-2 px-4 border-1 border-gray-500'>
+        {label &&
+         <label
+         className='text-md text-gray-400'
+         htmlFor={id}
+         >{label}</label>}
+
         <input 
         type={type} 
         id={id}
-        className={`${className}`}
+        className={`${className} border-none outline-none text-custom-white bg-transparent`}
         {...props} 
         />
     </div>

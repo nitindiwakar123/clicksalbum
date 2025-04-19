@@ -20,10 +20,10 @@ export default function Login() {
     try {
       const session = await authService.login(data);
 
-      if(session) {
+      if (session) {
         const userData = await authService.getCurrentUser();
 
-        if(userData) {
+        if (userData) {
           dispatch(storeLogin(userData));
           navigate('/');
         }
@@ -34,32 +34,49 @@ export default function Login() {
     setLoading(false);
   }
 
-    return (
-      <div>
-        <div>
-          <h1>clicksalbum</h1>
-        </div>
-        <form onSubmit={handleSubmit(createSession)}>
-          <Input
-            label='email'
-            type='email'
-            className=''
-            {...register("email",
-              { required: true })
-            }
-          />
-  
-          <Input
-            label='password'
-            type='password'
-            className=''
-            {...register("password",
-              { required: true })
-            }
-          />
-  
-          <Button type='submit'>{loading ? <Spinner />: "Log in"}</Button>
-        </form>
+  return (
+    <div className='w-full h-full bg-custom-gray py-20 px-12 flex flex-col items-center gap-8'>
+      <div className='w-full text-start'>
+        <h1 className='text-custom-white text-lg font-semibold font-sans'>Log into Clicksalbum</h1>
       </div>
-    )  
- }
+      <form className='w-full flex flex-col gap-5' onSubmit={handleSubmit(createSession)}>
+        <Input
+          label='Email'
+          type='email'
+          className='w-full'
+          {...register("email",
+            { required: true })
+          }
+        />
+
+        <Input
+          label='Password'
+          type='password'
+          className=''
+          {...register("password",
+            { required: true })
+          }
+        />
+
+        <Button
+          type='submit'
+          className='w-full py-3 mt-2 text-custom-white rounded-4xl border-none outline-none'
+        >
+          {loading ? <Spinner /> : "Log in"}
+        </Button>
+      </form>
+
+      <div className='w-full text-center'>
+        <p className='text-custom-white text-md font-semibold font-sans'>Forgot password?</p>
+      </div>
+
+      <div className='w-full'>
+        <Button
+        className='w-full py-3 rounded-4xl bg-transparent border-1 border-sky-500  text-[#5DB2FE]'
+        >
+          Create new account
+        </Button>
+      </div>
+    </div>
+  )
+}

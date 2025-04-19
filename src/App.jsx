@@ -79,9 +79,12 @@ function App() {
       } else {
         navigate('/login');
       }
-  }, []);
+      setLoading(false);
+  }, [dispatch, authStatus]);
+console.log("authStatus: ", authStatus);
 
   if(!loading) {
+    {console.log('in false loading')}
     return (
       <div>
         <Header/>
@@ -94,6 +97,8 @@ function App() {
   } else {
     return (
       <div>
+    {console.log('in true loading')}
+
         <h1>...loading</h1>
       </div>
     )
