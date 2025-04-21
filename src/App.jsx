@@ -9,14 +9,14 @@ import { setReels, deleteReels } from "./features/reels/reels";
 import { setStories, deleteStories } from "./features/stories/stories";
 import { useSelector, useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { Header, Footer } from "./components";
+import { Footer } from "./components";
 import { useNavigate } from "react-router-dom";
 
 function App() {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const authStatus = useSelector((state) => state.auth.status);
+  // const authStatus = useSelector((state) => state.auth.status);
 
   useEffect(() => {
     const authPromise = authService.getCurrentUser()
@@ -33,8 +33,6 @@ function App() {
         throw error;
       });
 
-      if(authStatus) {
-        
       const postsPromise = postsService.getAllPosts()
       .then((posts) => {
         if(posts) {
@@ -76,22 +74,18 @@ function App() {
 
       Promise.all([authPromise, postsPromise, reelsPromise, storiesPromise])
       .finally(() => setLoading(false));
-      } else {
-        navigate('/login');
-      }
+      
       setLoading(false);
-  }, [dispatch, authStatus]);
-console.log("authStatus: ", authStatus);
+  }, [dispatch]);
+// console.log("authStatus: ", authStatus);
 
   if(!loading) {
     {console.log('in false loading')}
     return (
       <div>
-        <Header/>
         <main>
           <Outlet />
         </main>
-        <Footer />
       </div>
     )
   } else {

@@ -48,9 +48,10 @@ export class AuthService {
 
             if(currentUser) {
                 return currentUser;
-            } else {
-                return false;
-            }
+            } 
+            // else {
+            //     return false;
+            // }
         } catch (error) {
             console.log("Appwrite Service :: auth :: getCurrentUser :: error: ", error);
             throw error;

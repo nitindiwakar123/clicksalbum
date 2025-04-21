@@ -7,7 +7,7 @@ export default function Button({
   ...props
 }) {
   return (
-    <button type={type} className={`bg-custom-blue  font-sans font-medium text-md ${className}`} {...props}>
+    <button type={type} className={`transition-colors duration-200 cursor-pointer font-sans font-medium text-md ${className}`} {...props}>
       {children}
     </button>
   )
