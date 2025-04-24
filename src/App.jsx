@@ -9,7 +9,7 @@ import { setReels, deleteReels } from "./features/reels/reels";
 import { setStories, deleteStories } from "./features/stories/stories";
 import { useSelector, useDispatch } from "react-redux";
 import { Outlet } from "react-router-dom";
-import { Footer } from "./components";
+import { Footer, Sidebar } from "./components";
 import { useNavigate } from "react-router-dom";
 
 function App() {
@@ -82,9 +82,13 @@ function App() {
   if(!loading) {
     {console.log('in false loading')}
     return (
-      <div>
+      <div className="w-full bg-custom-white2">
         <main>
-          <Outlet />
+          <Sidebar />
+          <div>
+            <Outlet />
+          </div>
+          <Footer />
         </main>
       </div>
     )

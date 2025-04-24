@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: 'SegoeItalic';
-    src: url('/fonts/segoe-ui-italic.ttf') format('truetype');
+    src: url('./fonts/segoe-ui-italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
 }
@@ -16,8 +16,10 @@
 
     --color-custom-white: #F1F4F7;
     --color-custom-white2: #FFFFFF;
+    --color-custom-white3: #F5F5F5;
     --color-dark-black: #000000;
     --color-custom-gray: #152127;
+    --color-custom-gray2: #F2F2F2;
     --color-custom-blue: #1A74E3;
 
 }
