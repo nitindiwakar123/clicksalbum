@@ -6,6 +6,7 @@ import Input from "./Input";
 import Spinner from "./Spinner";
 import Sidebar from "./Sidebar/Sidebar";
 import Logo from "./Logo";
+import CreatePost from "./Sidebar/CreatePost";
 
 export {
     Footer,
@@ -15,5 +16,6 @@ export {
     Input,
     Spinner,
     Sidebar,
-    Logo
+    Logo,
+    CreatePost
 }
