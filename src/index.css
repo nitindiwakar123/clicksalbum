@@ -1,5 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 
 @custom-variant dark (&:is(.dark *));
 
@@ -13,6 +15,7 @@
 @theme {
 
     --font-segoeitalic: SegoeItalic, sans-serif;
+    --font-inter: 'Inter', sans-serif;
 
     --color-custom-white: #F1F4F7;
     --color-custom-white2: #FFFFFF;
@@ -20,6 +23,7 @@
     --color-dark-black: #000000;
     --color-custom-gray: #152127;
     --color-custom-gray2: #F2F2F2;
+    --color-custom-gray3: #262626;
     --color-custom-blue: #1A74E3;
 
 }
@@ -132,10 +136,11 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
 }

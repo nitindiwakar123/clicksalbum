@@ -82,7 +82,7 @@ function App() {
   if(!loading) {
     {console.log('in false loading')}
     return (
-      <div className="w-full bg-custom-white2">
+      <div className="w-full bg-dark-black h-screen">
         <main>
           <Sidebar />
           <div>

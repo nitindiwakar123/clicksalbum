@@ -7,6 +7,8 @@ import Spinner from "./Spinner";
 import Sidebar from "./Sidebar/Sidebar";
 import Logo from "./Logo";
 import CreatePost from "./Sidebar/CreatePost";
+import PostForm from "./Sidebar/PostForm";
+import Toast from "./Toast";
 
 export {
     Footer,
@@ -17,5 +19,7 @@ export {
     Spinner,
     Sidebar,
     Logo,
-    CreatePost
+    CreatePost,
+    PostForm,
+    Toast
 }
