@@ -1,32 +1,40 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { logoImage } from '../assets';
-import {SettingsIcon} from "lucide-react";
-import { Button } from '../components';
-
-export default function Profile() {
-
-  const userData = useSelector((state) => state.auth.userData);
-
+function Profile() {
   return (
-    <div className='w-full flex flex-col justify-center items-center py-10 bg-blue-500'>
-      <div className='w-[60%] mx-auto flex justify-center gap-20 items-center bg-red-500'>
-        <div className='w-34 rounded-full overflow-hidden border border-gray-400'>
-          <img src={logoImage} alt="User profile picture" className=' object-cover ' />
-        </div>
-        <div className='flex flex-col justify-center items-center gap-5'>
-          <div className='flex gap-2 items-center'>
-            <h2>user_name</h2>
-            <Button className='py-2 px-4 bg-gray-400 font-medium font-sans'>Edit profile</Button>
-            <Button className='py-2 px-4 bg-gray-400 font-medium font-sans'>View archive</Button>
-            <SettingsIcon />
+    <section className="space-y-6">
+      <header className="rounded-3xl border border-slate-800 bg-slate-900/40 p-6">
+        <div className="flex flex-wrap items-center gap-4">
+          <div className="h-20 w-20 rounded-full bg-gradient-to-br from-sky-400 to-indigo-500" />
+          <div>
+            <p className="text-xs uppercase text-slate-500">Creator Profile</p>
+            <h1 className="text-2xl font-semibold text-white">Jane Harper</h1>
+            <p className="text-sm text-slate-400">@janedoe</p>
           </div>
-          <div></div>
-          <div></div>
         </div>
+      </header>
+      <div className="grid gap-4 md:grid-cols-3">
+        {[
+          { label: "Followers", value: "12.8k" },
+          { label: "Following", value: "438" },
+          { label: "Story views", value: "92k" },
+        ].map((item) => (
+          <div
+            key={item.label}
+            className="rounded-3xl border border-slate-800 bg-slate-900/40 p-5 text-center"
+          >
+            <p className="text-xs uppercase text-slate-500">{item.label}</p>
+            <p className="mt-2 text-xl font-semibold text-white">{item.value}</p>
+          </div>
+        ))}
       </div>
-      <div></div>
-      <div></div>
-    </div>
-  )
+      <div className="rounded-3xl border border-slate-800 bg-slate-900/40 p-6">
+        <p className="text-sm font-semibold text-white">Bio</p>
+        <p className="mt-2 text-sm text-slate-400">
+          Visual storyteller & creator. Sharing slow living, film-inspired edits,
+          and creative prompts every week.
+        </p>
+      </div>
+    </section>
+  );
 }
+
+export default Profile;
