@@ -1,103 +1,85 @@
 # 📸 ClicksAlbum
 
-ClicksAlbum is a modern social media platform that allows users to upload, share, and interact with photos and short videos. Designed for seamless user experience, ClicksAlbum brings a powerful and engaging way to connect through visual content.
+ClicksAlbum is a modern full-stack social media platform that lets creators share posts, stories, and highlights with a sleek, interactive UI. The app blends a React + Tailwind front end with an Express + MongoDB API, Redis-backed sessions, and secure authentication.
 
 ## 🚀 Features
 
-- 🔐 **User Authentication** (Sign Up, Login, Logout)
-- 📸 **Photo & Video Uploading** with Appwrite Storage
-- ❤️ **Post Likes & Comments**
-- 🏠 **Personalized Feed & Explore Section**
-- 👤 **User Profiles & Bio Customization**
-- 📝 **Advanced Post Editor** (Similar to Instagram)
+- 🔐 **Secure Authentication** with password hashing, OTP email verification, and Google OIDC.
+- 📝 **Create, Update & Delete Posts** with likes, comments, shares, and saves.
+- 🎞️ **Story Editor** with fonts, filters, and color accents.
+- 💬 **Interactive UI** designed for modern creator workflows.
+- 🧠 **Session Storage in Redis (Hash datatype)** for scalable auth sessions.
 
 ## 🛠️ Tech Stack
 
-- **Frontend:** React.js, Tailwind CSS
+- **Frontend:** React.js, Tailwind CSS, Vite
 - **Backend:** Node.js, Express
-- **Database:** MongoDB
-- **Storage:** Appwrite Storage
-- **Authentication:** Appwrite Auth (OAuth & JWT)
+- **Database:** MongoDB + Mongoose ODM
+- **Session Store:** Redis (hash sessions)
+- **Auth:** Passport (Google OIDC) + OTP email verification
 
 ## 📦 Installation & Setup
 
 ### Prerequisites
-Make sure you have the following installed on your system:
-- Node.js (v16+)
-- Git
-- Appwrite Server Setup
+- Node.js (v18+)
+- MongoDB
+- Redis
 
-### Steps to Run Locally
+### Frontend
+```sh
+npm install
+npm run dev
+```
 
-1. **Clone the Repository**
-   ```sh
-   git clone https://github.com/nitindiwakar123/clicksalbum.git
-   cd clicksalbum
-   ```
+### Backend
+```sh
+cd server
+npm install
+npm run dev
+```
 
-2. **Install Dependencies**
-   ```sh
-   npm install
-   ```
+### Environment Variables
+Create a `.env` file inside `server/`:
+```env
+PORT=4000
+CLIENT_ORIGIN=http://localhost:5173
+SESSION_SECRET=replace-with-a-strong-secret
+MONGO_URI=mongodb://localhost:27017/clicksalbum
+REDIS_URL=redis://localhost:6379
 
-3. **Setup Environment Variables**
-   - Create a `.env` file in the root directory and add the following:
-     ```env
-     VITE_APPWRITE_ENDPOINT=your_appwrite_endpoint
-     VITE_APPWRITE_PROJECT_ID=your_project_id
-     VITE_APPWRITE_BUCKET_ID=your_bucket_id
-     ```
+GOOGLE_CLIENT_ID=your-google-client-id
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+GOOGLE_CALLBACK_URL=http://localhost:4000/api/auth/google/callback
 
-4. **Start the Development Server**
-   ```sh
-   npm run dev
-   ```
-   Open `http://localhost:3000` in your browser to see the app in action.
+SMTP_HOST=smtp.yourprovider.com
+SMTP_PORT=587
+SMTP_USER=your-smtp-user
+SMTP_PASS=your-smtp-password
+SMTP_FROM=no-reply@clicksalbum.com
+```
 
 ## 📂 Project Structure
 
 ```plaintext
 clicksalbum/
 ├── public/
-├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── pages/
-│   ├── context/
-│   ├── utils/
-│   ├── App.js
-│   └── main.js
-├── .gitignore
-├── index.html
+├── src/             # React client
+├── server/          # Express API
+│   ├── src/
+│   └── package.json
 ├── package.json
 └── vite.config.js
 ```
 
-## 🏗️ Project Roadmap
+## ✅ Roadmap
 
-### ✅ Completed
-- Initial React Setup with Vite
-- User Authentication with Appwrite
-- Post Uploading Feature
-
-### 🔜 Upcoming Features
-- Video Upload & Playback
-- Post Editing & Deletion
-- Follow/Unfollow System
-- Dark Mode UI
-
-## 🤝 Contributing
-
-Contributions are always welcome! If you’d like to improve this project:
-1. Fork the repository
-2. Create a new branch (`feature/your-feature`)
-3. Commit your changes
-4. Push and create a pull request
-
-## 📞 Contact
-For any queries or collaboration, feel free to reach out:
-- ✉️ Email: nitindiwakar2006@gmail.com
+- [x] Modern UI for posts and stories
+- [x] CRUD post interactions with comments, likes, shares, saves
+- [x] Story editor with typography + filters
+- [x] MongoDB + Mongoose backend
+- [x] Redis session storage
+- [ ] Media uploads & CDN delivery
+- [ ] Real-time notifications
 
 ## 📜 License
-This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for more details.
-
+This project is licensed under the **MIT License**.
